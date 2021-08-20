@@ -11,22 +11,17 @@ document.addEventListener("DOMContentLoaded", function (e) {
         let completado = true;
 
         if (inputEmail.value === '') {
-            inputEmail.classList.add("invalid");
             completado = false;
-        } else {
-            inputEmail.classList.remove("invalid");
-        }
+        } 
+
         if (inputPassword.value === '') {
-            inputPassword.classList.add("invalid");
             completado = false;
-        } else {
-            inputPassword.classList.remove("invalid");
         }
         
         if (completado) {
             window.location = "inicioPag.html";
         } else {
-            alert("Usuario o contraseña incorrecta")
+            alert("Debe ingresar usuario y/o contraseña")
         }
 
 
