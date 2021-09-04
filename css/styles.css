@@ -153,3 +153,8 @@ a.custom-card:hover {
   margin-left: auto;
   margin-right: auto;
 }
+#info-usuario {
+  color: white;
+  display: flex; 
+}
+

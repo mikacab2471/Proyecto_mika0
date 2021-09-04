@@ -44,4 +44,23 @@ var getJSONData = function(url){
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+
+  let userLogged = localStorage.getItem("User-Logged");
+  let infoUser = document.getElementById("info-usuario");
+  let usuario = document.getElementById("usuario");
+
+  if(userLogged) {
+    userLogged = JSON.parse(userLogged);
+    usuario.innerText = usuario.innerText + "!Hola: " + userLogged.email + " ¡";
+    infoUser.style = "display: inline-block";
+  }
+
+  if(document.getElementById("salir")) {
+
+    document.getElementById("salir").addEventListener("click", function(e){
+      
+      localStorage.removeItem("User-Logged");
+      window.location = 'index.html';
+    })
+  }
 });

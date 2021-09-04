@@ -23,37 +23,83 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <div id="info-usuario" style="display: none;" class="py-2 d-none d-md-inline-block">
+        
+        <p id="usuario"></p>
+        <p id="salir">Cerrar Sesión</p>
+      </div>
     </div>
   </nav>
   <div class="container p-5">
     <div class="text-center">
       <h2>Productos</h2>
     </div>
-    
-    <div id="listado-p">
-    </div>
-  </div>
-  <footer class="text-muted bg-light">
     <div class="container">
-      <p class="float-right">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+      <div class="row">
+        <div class="col text-right">
+          <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+            <label class="btn btn-light active" id="precioAscen">
+              <input type="radio" name="options" autocomplete="off" checked>$-$$
+            </label>
+            <label class="btn btn-light" id="precioDesc">
+              <input type="radio" name="options" autocomplete="off">$$-$
+            </label>
+            <label class="btn btn-light" id="cantVendida">
+              <input type="radio" name="options" autocomplete="off"><i
+                class="fas fa-sort-amount-down mr-1"></i>Relevancia
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-end">
+        <div class="col-md-6"></div>
+        <div class="col-md-6 col-sm-12 mb-1 container">
+          <div class="row container p-0 m-0">
+            <div class="col">
+              <p class="font-weight-normal text-right my-2">Precio</p>
+            </div>
+            <div class="col">
+              <input class="form-control" type="number" placeholder="min." id="filtroMinimo">
+            </div>
+            <div class="col">
+              <input class="form-control" type="number" placeholder="máx." id="filtroMaximo">
+            </div>
+            <div class="col-3 p-0">
+              <div class="btn-group" role="group">
+                <button class="btn btn-light btn-block" id="filtrar">Filtrar</button>
+                <button class="btn btn-link btn-sm" id="limpiar">Limpiar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="listado-p">
+        
+      </div>
+      
     </div>
-  </footer>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+    
+    <footer class="text-muted bg-light">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Volver arriba</a>
+        </p>
+        <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+        <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+      </div>
+    </footer>
+    <div id="spinner-wrapper">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </div>
-  </div>
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/products.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/products.js"></script>
 </body>
 
 </html>

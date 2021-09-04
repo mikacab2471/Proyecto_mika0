@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
         
         if (completado) {
+            localStorage.setItem("User-Logged", JSON.stringify({email: inputEmail.value}));
             window.location = "inicioPag.html";
         } else {
             alert("Debe ingresar usuario y/o contraseña")
