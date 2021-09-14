@@ -1,11 +1,15 @@
 const CATEGORIES_URL = "https://japdevdep.github.io/ecommerce-api/category/all.json";
 const PUBLISH_PRODUCT_URL = "https://japdevdep.github.io/ecommerce-api/product/publish.json";
 const CATEGORY_INFO_URL = "https://japdevdep.github.io/ecommerce-api/category/1234.json";
-const PRODUCTS_URL = "https://japdevdep.github.io/ecommerce-api/product/all.json";
-const PRODUCT_INFO_URL = "https://japdevdep.github.io/ecommerce-api/product/5678.json";
-const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/product/5678-comments.json";
+const PRODUCTS_URL = "https://mikacab2471.github.io/api_proyectos/autos.json"; //le agrege id a cada uno para poder relacionar dos urls
+const PRODUCT = "https://mikacab2471.github.io/api_proyectos/productos_autos.json"; //la nueva que uso
+const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/product/5678-comments.json";//es la que, no uso
 const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
+
+
+const PRODUCT_INFO_URL = "https://japdevdep.github.io/ecommerce-api/product/5678.json"; //la que uso
+const PRODUCTS = "https://japdevdep.github.io/ecommerce-api/product/all.json"; //ya no la uso es la vieja
 
 var showSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "block";

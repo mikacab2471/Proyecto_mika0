@@ -157,4 +157,44 @@ a.custom-card:hover {
   color: white;
   display: flex; 
 }
+.contenido-coment {
+  border: 2px solid #ccc;
+  background-color: #eee;
+  border-radius: 5px;
+  padding: 16px;
+  margin: 16px 0
+}
 
+.contenido-coment::after {
+  content: "";
+  
+  display: table;
+}
+.contenido-coment span {
+  font-size: 20px;
+  margin-right: 15px;
+  
+}
+#puntuacion {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  }
+
+#puntuacion input {
+  position: absolute;
+  top: -100px;
+  }
+
+
+#puntuacion label {
+  float: right;
+  color: #c1b8b8;
+  font-size: 30px; 
+  }
+
+#puntuacion label:hover,
+#puntuacion label:hover ~ label,
+#puntuacion input:checked ~ label {
+  color:orange;
+  }

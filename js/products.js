@@ -32,6 +32,11 @@ function sortProductos(criterio, array){
     return result;
 }
 
+function verProducto(id){
+    localStorage.setItem('auto', JSON.stringify({autoId: id}));
+    window.location = 'product-info.html';
+}
+
 function showProductos(array) {
 
     let htmlContentToAppend = "";
@@ -42,11 +47,12 @@ function showProductos(array) {
             ((precioMax == undefined) || (precioMax != undefined && (producto.cost) <= precioMax))){
 
         htmlContentToAppend += `
-        <div>
+        
+        <div onclick="verProducto(`+ producto.id +`)">
             <div class="row">
                 <div class="bloque-productos">
                     <div>
-                      <img src="` + producto.imgSrc + `" alt="` + producto.description + `" class="img-estilo">
+                      <img src="img/` + producto.name + `/prod1.jpg" alt="` + producto.description + `" class="img-estilo">
                     </div>
                     <div>
                      <div>
@@ -61,6 +67,7 @@ function showProductos(array) {
                 
             </div>
         </div>
+        
        `
     }
 
