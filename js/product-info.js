@@ -77,12 +77,12 @@ document.addEventListener("DOMContentLoaded", function (e) {
             let productoNameHTML = document.getElementById("productoName");
             let productoDescriptionHTML = document.getElementById("productoDescription");
             let productoCountHTML = document.getElementById("productoCount");
-            let productoCriteriaHTML = document.getElementById("productoVendidos");
+            let productoVendidosHTML = document.getElementById("productoVendidos");
 
             productoNameHTML.innerHTML = producto.name;
             productoDescriptionHTML.innerHTML = producto.description;
             productoCountHTML.innerHTML = producto.cost;
-            productoCriteriaHTML.innerHTML = producto.soldCount;
+            productoVendidosHTML.innerHTML = producto.soldCount;
 
 
             showGaleria(producto.images);
