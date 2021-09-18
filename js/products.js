@@ -44,7 +44,7 @@ function showProductos(array) {
 
         htmlContentToAppend += `
         
-        <a href="product-info.html">
+        <a href="product-info.html" class="list-group-item-action">
             <div class="row">
                 <div class="bloque-productos">
                     <div>
