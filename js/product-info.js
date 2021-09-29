@@ -1,33 +1,50 @@
 var comentarioArray = [];
+var array1;
+var array2;
+
 
 function showGaleria(array) {
 
-    let htmlContentToAppend = "";
-
-    for (let i = 0; i < array.length; i++) {
-        let imageSrc = array[i];
-
-        htmlContentToAppend += `
-        <div class="col-lg-3 col-md-4 col-6">
-            <div class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
-            </div>
-        </div>
-        `
-
-        document.getElementById("productoImagesGallery").innerHTML = htmlContentToAppend;
-    }
+    document.getElementById('galeria').innerHTML =`<div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-interval="10000">
+      <img src="`+array[0]+`" class="d-block w-85" alt="...">
+    </div>
+    <div class="carousel-item" data-interval="2000">
+      <img src="`+array[1]+`" class="d-block w-85" alt="...">
+    </div>
+    <div class="carousel-item" data-interval="2000">
+      <img src="`+array[2]+`" class="d-block w-85" alt="...">
+    </div>
+    <div class="carousel-item" data-interval="2000">
+      <img src="`+array[3]+`" class="d-block w-85" alt="...">
+    </div>
+    <div class="carousel-item" data-interval="2000">
+      <img src="`+array[4]+`" class="d-block w-85" alt="...">
+    </div>
+  </div>
+  <a class="carousel-control-prev d-flex justify-content-center" href="#carouselExampleInterval" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next d-flex justify-content-center" href="#carouselExampleInterval" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>`;
+     
 }
+
 
 function showComentarios(palabra) {
     let cargarComentario = "";
-    
+
     for (let i = 0; i < palabra.length; i++) {
         let comentarios = palabra[i];
         let puntos = "";
 
         cargarComentario += `
-        <div class="contenido-coment">
+        <div class="contenido-coment bg-gradient-secondary">
            <p><span>`+ comentarios.user + `</span></p>
            <p>`+ comentarios.description + `</p>
            <small class="text-muted" >` + comentarios.dateTime + `</small>
@@ -62,6 +79,27 @@ function getRating() {
     }
 }
 
+function showProductosRel(array1, array2) {
+    let prodPelacionados = "";
+    for (let i = 0; i < array2.length; i++) {
+        let algo = array1[array2[i]];
+
+        prodPelacionados += `
+        <div class="card " style="width: 18rem;">
+               <img src="img/` + algo.name + `/prod1.jpg" class="card-img-top" alt="">
+            <div class="card-body">
+               <h5 class="card-title">`+ algo.name + `</h5>
+               <p class="card-text">` + algo.description + `</p>
+               <h5>`+ algo.currency + ` ` + algo.cost + `</h5>
+               <a href="product-info.html" class="btn btn-primary d-flex justify-content-center ">Visitar</a>
+            </div>
+        </div>
+        `
+
+        document.getElementById("prodRelacionados").innerHTML = prodPelacionados;
+    }
+}
+
 
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
@@ -85,7 +123,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
             productoVendidosHTML.innerHTML = producto.soldCount;
 
 
+
             showGaleria(producto.images);
+
         }
 
         getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (result) {
@@ -96,6 +136,20 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
             }
         });
+
+        getJSONData(PRODUCTS_URL).then(function (result) {
+
+            if (result.status === "ok") {
+                relacion1 = result.data;
+                relacion2 = producto.relatedProducts;
+
+
+                showProductosRel(relacion1, relacion2);
+
+            }
+        });
+
+
     });
 
     document.getElementById("enviarComentario").addEventListener("click", function () {
@@ -111,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         showComentarios(comentarioArray);
     })
 
-    
+
 
 
 });

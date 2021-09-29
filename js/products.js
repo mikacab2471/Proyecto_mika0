@@ -32,6 +32,10 @@ function sortProductos(criterio, array){
     return result;
 }
 
+function setInfoProducto(id_auto){
+    localStorage.setItem("productoId", JSON.stringify({idProducto: id_auto}));
+    window.location = "product-info.html";
+}
 
 function showProductos(array) {
 
@@ -44,7 +48,7 @@ function showProductos(array) {
 
         htmlContentToAppend += `
         
-        <a href="product-info.html" class="list-group-item-action">
+        <div onclick="setInfoProducto(`+ producto.id_auto +`)">
             <div class="row">
                 <div class="bloque-productos">
                     <div>
@@ -62,7 +66,7 @@ function showProductos(array) {
                 </div>
                 
             </div>
-        </a>
+        </div>
         
        `
     }
