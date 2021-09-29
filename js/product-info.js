@@ -1,6 +1,6 @@
 var comentarioArray = [];
 var relacion1;
-var relacion1;
+var relacion2;
 
 
 function showGaleria(array) {
