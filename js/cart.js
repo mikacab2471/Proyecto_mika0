@@ -1,5 +1,4 @@
 let productoMiCarrito = "";
-
 let pesos = "$";
 let ERROR_MSG = "Ha habido un error, verifica qué pasó.";
 
@@ -56,16 +55,18 @@ function subtotal(unitario, i) {
 }
 
 //function costo(){
-    //let array = document.getElementsByName("envioTipo");
-    //let totalHTML = parseInt(document.getElementById("totalDeProductos"));
-    //for(i=0; i < array.length; i++){
-       // if (array.checked){
-       //   return envio = pesos + Math.round(totalHTML * parseInt(array.value));
-       // }
+    
+   // let totalHTML = parseInt(document.getElementById("totalDeProductos").innerHTML);
+    //let envio;
+   // let algo = document.getElementsByName("envioTipo");
+   // for(let i=0; i < algo.length; i++){
+   //     if (algo[i].checked){
+   //         envio = (totalHTML * parseInt(algo[i].value));
+   //    }
      
    // }
 
-   // document.getElementById("costoEnvio").innerHTML = envio;
+  //  document.getElementById("costoEnvio").innerHTML = envio;
 //}
 
 
@@ -88,45 +89,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     });
 
-    document.getElementById("finalizarCompra").addEventListener("click", function (e) {
-
-        let tipoPago = document.getElementById("seleccionarPago");
-        let tipoEnvio = document.getElementById("sleccionarTipoEnvio");
-        let infoMissing = false;
-
-        if (tipoPago.value === "") {
-            infoMissing = true;
-        }
-
-
-        if (tipoEnvio.value === "") {
-            infoMissing = true;
-        }
-
-
-        if (!infoMissing) {
-
-            getJSONData(CART_BUY_URL).then(function (resultObj) {
-                let msgToShowHTML = document.getElementById("resultadoSpan");
-                let msgToShow = "";
-
-
-                if (resultObj.status === 'ok') {
-                    msgToShow = resultObj.data.msg;
-                    document.getElementById("alertaResultado").classList.add('alert-success');
-                }
-                else if (resultObj.status === 'error') {
-                    msgToShow = ERROR_MSG;
-                    document.getElementById("alertaResultado").classList.add('alert-danger');
-                }
-
-                msgToShowHTML.innerHTML = msgToShow;
-                document.getElementById("alertaResultado").classList.add("show");
-            });
-        }
-
-        if (e.preventDefault) e.preventDefault();
-        return false;
-    });
-
+   // let algo = document.getElementsByName("envioTipo");
+   // for(var i=0; i < algo.length; i++){
+   //     algo[i].addEventListener("change", function(){
+   //         costo()
+   //     });
+        
+  //  }
 });
