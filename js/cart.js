@@ -1,6 +1,6 @@
 let productoMiCarrito = "";
 
-let pesos = "UYU ";
+let pesos = "$";
 let ERROR_MSG = "Ha habido un error, verifica qué pasó.";
 
 
