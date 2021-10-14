@@ -11,6 +11,7 @@
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <style>
     .bd-placeholder-img {
@@ -55,13 +56,177 @@
       </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 17/10/2021) y Entrega 7 (Fecha de entrega:
-        14/11/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <div class="container">
+    <div class="text-center">
+      <br>
+      <h2>Mi Carrito</h2>
+      <br>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-8">
+        <div id="productosSeleccionados"></div>
+
+
+      </div>
+
+
+      <div class="col-md-4 align-item-end">
+        <h3>Resumen del Pedido</h3>
+
+        <div class="row">
+          <div class="col-md-4">
+            <h6>Subtotal de Productos Seleccionados</h6>
+          </div>
+          <div class="col-md-3 ml-md-auto" id="totalDeProductos"></div>
+
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <h6>Costo de Envío</h6>
+          </div>
+          <div class="col-md-3 ml-md-auto" id="costoEnvio"></div>
+
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <h4><strong>Total:</strong></h4>
+          </div>
+          <div class="col-md-3 ml-md-auto" id="precioFinal"><strong></strong></div>
+        </div>
+        <div>
+          <h5>Formas de Pago</h5>
+          <fieldset class="form-group col align-self-center">
+            <div class="row">
+              <div class="col-sm-10" id="seleccionarPago">
+                <div class="custom-control custom-radio">
+                  <input class="custom-control-input" type="radio" name="pagosForma" id="credito" value="option1"
+                  checked>
+                  <label class="custom-control-label" for="credito">
+                    Crédito
+                  </label>
+                  <div class="icon-container">
+                    <i class="fa fa-cc-visa" style="color:navy;"></i>
+                    <i class="fa fa-cc-amex" style="color:blue;"></i>
+                    <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                    <i class="fa fa-cc-discover" style="color:orange;"></i>
+                  </div>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input class="custom-control-input" type="radio" name="pagosForma" id="debito" value="option2">
+                  <label class="custom-control-label" for="debito">
+                    Débito
+                  </label>
+                  <div class="icon-container">
+                    <i class="fa fa-cc-paypal" style="color:rgb(26, 135, 236);"></i>
+                    <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                  </div>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input class="custom-control-input" type="radio" name="pagosForma" id="transferenciaBancaria"
+                    value="option3">
+                  <label class="custom-control-label" for="transferenciaBancaria">
+                    Transferencia Bancaria
+                  </label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="finalizarCompra">Finalizar Compra</button>
+
+        <br>
+
+        <a class="btn btn-secondary btn-lg btn-block" href="products.html" role="button">Continuar Comprando</a>
+
+        <br>
+      </div>
+
+
+      <div class="col-12 col-md-8">
+        <br>
+
+        <h3>Métodos de Envío:</h3>
+        <form>
+          <div class="form-group">
+            <label for="inputDireccion">Dirección</label>
+            <input type="text" class="form-control" id="inputDireccion" placeholder="ej: Pedrito 1234">
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputPais">País</label>
+              <input type="text" class="form-control" id="inputPais">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputDepartamento">Departamento</label>
+              <select id="inputDepartamento" class="form-control">
+                <option selected>Escoger...</option>
+                <option>Artigas</option>
+                <option>Canelones</option>
+                <option>Cerro Largo</option>
+                <option>Colonia</option>
+                <option>Durazno</option>
+                <option>Flores</option>
+                <option>Florida</option>
+                <option>Lavalleja</option>
+                <option>Maldonado</option>
+                <option>Montevideo</option>
+                <option>Paysandú</option>
+                <option>Río Negro</option>
+                <option>Rivera</option>
+                <option>Rocha</option>
+                <option>Salto</option>
+                <option>San José</option>
+                <option>Soriano</option>
+                <option>Tacuarembó</option>
+                <option>Treinta y Tres</option>
+              </select>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="inputCodigoPostal">Código Postal</label>
+              <input type="number" class="form-control" id="inputCodigoPostal">
+            </div>
+          </div>
+          <h6>Tipos de Envío:</h6>
+          <div class="d-block my-3" id="sleccionarTipoEnvio">
+            <div class="custom-control custom-radio">
+              <input id="tipoPremium" name="envioTipo" type="radio" class="custom-control-input" checked
+                value="0.15" required="">
+              <label class="custom-control-label" for="tipoPremium">Premium (2-5 días) <small class="text-muted">Costo
+                  del 15% sobre el subtotal.</small></label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input id="tipoExpress" name="envioTipo" type="radio" class="custom-control-input" 
+                value="0.07" required="">
+              <label class="custom-control-label" for="tipoExpress">Express (5-8 días) <small class="text-muted">Costo
+                  del 7% sobre el subtotal.</small></label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input id="tipoStandard" name="envioTipo" type="radio" class="custom-control-input" 
+                value="0.05" required="">
+              <label class="custom-control-label" for="tipoStandard">Standard (12-15 días) <small
+                  class="text-muted">Costo del 5% sobre el subtotal.</small></label>
+            </div>
+
+          </div>
+        </form>
+        <br>
+
+      </div>
+      <footer class="text-muted">
+        <div class="container">
+          <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+          <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+        </div>
+      </footer>
+
+      <div class="col-md-auto alert fade" role="alert" id="alertaResultado">
+        <span id="resultadoSpan"></span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
     </div>
   </div>
   <div id="spinner-wrapper">
@@ -77,7 +242,7 @@
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
-  <!--comentario de prueba :) --->
+  
 </body>
 
 </html>
