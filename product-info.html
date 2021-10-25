@@ -17,25 +17,42 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg site-header navbar-light bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between nav-item">
-      <a class="py-2 d-none d-md-inline-block nav-link" href="inicioPag.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block nav-link" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block nav-link" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block nav-link" href="sell.html">Vender</a>
-      <div class="btn-group" id="info-usuario" style="display: none;">
-        <button type="button" class="btn btn-primary" id="usuario"></button>
-        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          <span class="sr-only"></span>
-        </button>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="my-profile.html">Perfil</a>
-          <a class="dropdown-item" href="cart.html">Mi Carrito</a>
-          <div class="dropdown-divider"></div>
-          <a id="salir" class="dropdown-item" href="index.html">Cerrar Sesión</a>
+  <nav class="navbar navbar-expand-lg site-header navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="inicioPag.html">
+      <img src="img/inicio.png" width="60" height="30" alt="jap">
+    </a>
+  
+  
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="categories.html">Categorías</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="products.html">Productos</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="sell.html">Vender</a>
+        </li>
+      </ul>
+      <form class="my-2 my-lg-2">
+        <div class="btn-group" id="info-usuario" style="display: none;">
+          <button type="button" class="btn btn-info" id="usuario"></button>
+          <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only"></span>
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="my-profile.html">Perfil</a>
+            <a class="dropdown-item" href="cart.html">Mi Carrito</a>
+            <div class="dropdown-divider"></div>
+            <a id="salir" class="dropdown-item" href="index.html">Cerrar Sesión</a>
+          </div>
         </div>
-      </div>
+      </form>
     </div>
   </nav>
   <main role="main">

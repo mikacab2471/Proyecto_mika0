@@ -47,27 +47,23 @@ function showProductos(array) {
             ((precioMax == undefined) || (precioMax != undefined && (producto.cost) <= precioMax))){
 
         htmlContentToAppend += `
-        
-        <div onclick="setInfoProducto(`+ producto.id_auto +`)">
-            <div class="row">
-                <div class="bloque-productos">
-                    <div>
-                      <img src="img/` + producto.name + `/prod1.jpg" alt="` + producto.description + `" class="img-estilo">
-                    </div>
-                    <div>
-                     <div>
-                          <h4 >`+ producto.name + `</h4>
-                          <p>`+ producto.description + `</p>
-                          <h5>`+ producto.currency + ` ` + producto.cost + `</h5>
-                     </div>
-                        
-                        <small class="text-muted">` + producto.soldCount + ` artículos vendidos</small>
+    
+        <div class="col-md-5">
+            <div class="card mb-3 shadow-sm" onclick="setInfoProducto(`+ producto.id_auto +`)">
+                <img src="img/` + producto.name + `/prod1.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="">
+                <div class="card-body">
+                   <h4 >`+ producto.name + `</h4>
+                   <p class="card-text">`+ producto.description + `</p>
+                   <h5>`+ producto.currency + ` ` + producto.cost + `</h5>
+                    <div class="d-flex justify-content-between align-items-center">
+                       <div class="btn-group">
+                           <button type="button" class="btn btn-sm btn-outline-info">Ver Descripción</button>
+                        </div>
+                       <small class="text-muted">` + producto.soldCount + ` artículos vendidos</small>
                     </div>
                 </div>
-                
             </div>
         </div>
-        
        `
     }
 
