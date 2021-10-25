@@ -84,6 +84,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     });
 
+    
    // let algo = document.getElementsByName("envioTipo");
    // for(var i=0; i < algo.length; i++){
    //     algo[i].addEventListener("change", function(){

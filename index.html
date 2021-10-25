@@ -45,21 +45,27 @@
 <body class="text-center">
   <div class="container p-5">
     <div style="position: relative; width:auto; top: 0;">
-      <img class="mb-4 img-login" src='img/login.png' alt="" width="400" height="150">
+      <img class="img-fluid img-thumbnail" src='img/login.png' alt="">
       <div class="signin">
         
         <div>
-          <h1 class="h3 mb-3 font-weight-normal">Inicio de Sesión</h1>
+          <h1 class="h3 mb-3 font-weight-normal p-4">Inicio de Sesión</h1>
         </div>
 
         <div>
-          <label for="iEmail" class="sr-only">Email</label>
+          <label for="iEmail" class="sr-only">Usuario</label>
           <input type="email" id="iEmail" class="form-control" placeholder="Usuario o Dirección de Email" required autofocus>
+          <div class="invalid-feedback">
+            Por favor ingrese un usuario.
+          </div>
         </div>
-        
+        <br>
         <div>
           <label for="iPassword" class="sr-only">Contraseña</label>
           <input type="password" id="iPassword" class="form-control" placeholder="Contraseña" required>
+          <div class="invalid-feedback">
+            Por favor ingrese una contraseña.
+          </div>
         </div>
         
 
@@ -72,7 +78,7 @@
         
       </div>
 
-      <button class="btn btn-primary btn-lg" id="enviarInfo" type="submit" >Iniciar Sesión</button>
+      <button class="btn btn-outline-info btn-lg" id="enviarInfo" type="submit" >Iniciar Sesión</button>
       
     </div>
   </div>

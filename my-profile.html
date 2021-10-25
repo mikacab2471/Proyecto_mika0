@@ -35,14 +35,15 @@
 
 <body>
   <nav class="navbar navbar-expand-lg site-header navbar-dark bg-dark">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+      aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="inicioPag.html">
-      <img src="img/inicio.png" width="60" height="30" alt="jap">
+      <img src="img/inicio.png" width="80" height="40" alt="jap">
     </a>
-  
-  
+
+
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
@@ -72,26 +73,81 @@
       </form>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <div class="container">
+    <div class="text-center p-4">
+      <h2>Perfil</h2>
+      <p class="lead">Ingresa sus datos personales.</p>
+    </div>
+    <form class="needs-validation" id="myProfile">
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="nombre01">Nombres</label>
+          <input type="text" class="form-control" id="nombre01" placeholder="Nombres" value="" >
+          <div class="invalid-feedback">
+            Debe ingresar su nombre.
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="apellido02">Apellidos</label>
+          <input type="text" class="form-control" id="apellido02" placeholder="Apellidos" value="">
+          <div class="invalid-feedback">
+            Debe ingresar su apellido.
+          </div>
+        </div>
+        
+      </div>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="mail03">Email</label>
+          <input type="text" class="form-control " id="mail03" placeholder="Email" value="" >
+          <div class="invalid-feedback">
+            Ingrese un mail válido.
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="edad04">Edad</label>
+          <input type="number" class="form-control" id="edad04" placeholder="Edad" value="0" min="0">
+          <div class="invalid-feedback">
+            Por favor ingrese su edad.
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="celular05">Celular</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="validationTooltipUsernamePrepend">+598</span>
+            </div>
+            <input type="number" class="form-control" id="celular05" placeholder="Celular" aria-describedby="validationTooltipUsernamePrepend" value="0" min="0">
+            <div class="invalid-feedback">
+              Por favor ingrese un número de celular.
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <button class="btn btn-info btn-lg btn-block" type="submit">Guardar Cambios</button>
+      <br>
+      <br>
+      <br>
+    </form>
+
+    <div class="alert fade alert-success" role="alert" id="alertResult">
+      <span id="resultSpan"></span>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
   </div>
+
   <footer class="text-muted bg-light">
     <div class="container">
+      <p class="float-right">
+        <a href="#">Volver arriba</a>
+      </p>
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
-  <div class="alert fade alert-success" role="alert" id="alertResult">
-    <span id="resultSpan"></span>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>

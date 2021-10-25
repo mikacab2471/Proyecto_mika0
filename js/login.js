@@ -8,21 +8,26 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
         let inputEmail = document.getElementById("iEmail");
         let inputPassword = document.getElementById("iPassword");
-        let completado = true;
+        let completado = false;
+
+        inputEmail.classList.remove('is-invalid');
+        inputPassword.classList.remove('is-invalid');
 
         if (inputEmail.value === '') {
-            completado = false;
+
+            inputEmail.classList.add('is-invalid');
+            completado = true;
         } 
 
         if (inputPassword.value === '') {
-            completado = false;
+
+            inputPassword.classList.add('is-invalid');
+            completado = true;
         }
         
-        if (completado) {
-            localStorage.setItem("User-Logged", JSON.stringify({email: inputEmail.value}));
+        if (!completado) {
+            localStorage.setItem("User-Logged", JSON.stringify({user: inputEmail.value}));
             window.location = "inicioPag.html";
-        } else {
-            alert("Debe ingresar usuario y/o contraseña")
         }
 
 

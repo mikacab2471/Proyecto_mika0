@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
   if(userLogged) {
     userLogged = JSON.parse(userLogged);
-    usuario.innerText = usuario.innerText + "!Hola: " + userLogged.email + " ¡";
+    usuario.innerText = usuario.innerText + "!Hola: " + userLogged.user + " ¡";
     infoUser.style = "display: inline-block";
   }
 
@@ -65,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     document.getElementById("salir").addEventListener("click", function(e){
       
       localStorage.removeItem("User-Logged");
+      localStorage.removeItem("Profile");
       window.location = 'index.html';
     })
   }

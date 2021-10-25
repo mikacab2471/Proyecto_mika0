@@ -40,7 +40,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="inicioPag.html">
-      <img src="img/inicio.png" width="60" height="30" alt="jap">
+      <img src="img/inicio.png" width="80" height="40" alt="jap">
     </a>
   
   
@@ -87,7 +87,7 @@
       </div>
 
 
-      <div class="col-md-4 align-item-end">
+      <div class="col-md-4 align-item-end bg-light">
         <h3>Resumen del Pedido</h3>
 
         <div class="row">
@@ -150,11 +150,11 @@
           </fieldset>
         </div>
 
-        <button type="submit" class="btn btn-primary btn-lg btn-block" id="finalizarCompra">Finalizar Compra</button>
+        <button type="submit" class="btn btn-info btn-lg btn-block" id="finalizarCompra">Finalizar Compra</button>
 
         <br>
 
-        <a class="btn btn-secondary btn-lg btn-block" href="products.html" role="button">Continuar Comprando</a>
+        <a class="btn btn-outline-secondary btn-lg btn-block" href="products.html" role="button">Continuar Comprando</a>
 
         <br>
       </div>
@@ -167,41 +167,41 @@
         <form>
           <div class="form-group">
             <label for="inputDireccion">Dirección</label>
-            <input type="text" class="form-control" id="inputDireccion" placeholder="ej: Pedrito 1234">
+            <input type="text" class="form-control" id="inputDireccion" placeholder="ej: Pedrito 1234" value="">
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="inputPais">País</label>
-              <input type="text" class="form-control" id="inputPais">
+              <input type="text" class="form-control" id="inputPais" value="">
             </div>
             <div class="form-group col-md-4">
               <label for="inputDepartamento">Departamento</label>
               <select id="inputDepartamento" class="form-control">
-                <option selected>Escoger...</option>
-                <option>Artigas</option>
-                <option>Canelones</option>
-                <option>Cerro Largo</option>
-                <option>Colonia</option>
-                <option>Durazno</option>
-                <option>Flores</option>
-                <option>Florida</option>
-                <option>Lavalleja</option>
-                <option>Maldonado</option>
-                <option>Montevideo</option>
-                <option>Paysandú</option>
-                <option>Río Negro</option>
-                <option>Rivera</option>
-                <option>Rocha</option>
-                <option>Salto</option>
-                <option>San José</option>
-                <option>Soriano</option>
-                <option>Tacuarembó</option>
-                <option>Treinta y Tres</option>
+                <option selected value="">Escoger...</option>
+                <option value="1">Artigas</option>
+                <option value="2">Canelones</option>
+                <option value="3">Cerro Largo</option>
+                <option value="4">Colonia</option>
+                <option value="5">Durazno</option>
+                <option value="6">Flores</option>
+                <option value="7">Florida</option>
+                <option value="8">Lavalleja</option>
+                <option value="9">Maldonado</option>
+                <option value="10">Montevideo</option>
+                <option value="11">Paysandú</option>
+                <option value="12">Río Negro</option>
+                <option value="13">Rivera</option>
+                <option value="14">Rocha</option>
+                <option value="15">Salto</option>
+                <option value="16">San José</option>
+                <option value="17">Soriano</option>
+                <option value="18">Tacuarembó</option>
+                <option value="19">Treinta y Tres</option>
               </select>
             </div>
             <div class="form-group col-md-2">
               <label for="inputCodigoPostal">Código Postal</label>
-              <input type="number" class="form-control" id="inputCodigoPostal">
+              <input type="number" class="form-control" id="inputCodigoPostal" value="">
             </div>
           </div>
           <h6>Tipos de Envío:</h6>
@@ -230,15 +230,17 @@
         <br>
 
       </div>
-      <footer class="text-muted">
-        <div class="container p-5">
-          <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-          <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-        </div>
-      </footer>
-
-
+    
     </div>
+    <footer class="text-muted bg-light">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Volver arriba</a>
+        </p>
+        <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+        <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+      </div>
+    </footer>
   </div>
   <div id="spinner-wrapper">
     <div class="lds-ring">
