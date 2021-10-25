@@ -35,6 +35,11 @@ function sortCategories(criteria, array){
     return result;
 }
 
+function redirecciona(){
+    
+    window.location = "category-info.html";
+}
+
 function showCategoriesList(){
 
     let htmlContentToAppend = "";
@@ -45,20 +50,21 @@ function showCategoriesList(){
             ((maxCount == undefined) || (maxCount != undefined && parseInt(category.productCount) <= maxCount))){
 
             htmlContentToAppend += `
-            <a href="category-info.html" class="list-group-item list-group-item-action">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
-                    </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">`+ category.name +`</h4>
-                            <small class="text-muted">` + category.productCount + ` artículos</small>
+            <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img src="` + category.imgSrc + `" class="bd-placeholder-img card-img-top" alt="` + category.description + `" width="100%" height="225" alt="">
+                <div class="card-body">
+                   <h4 >`+ category.name +`</h4>
+                   <p class="card-text">` + category.description + `</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                       <div class="btn-group">
+                           <button type="click" class="btn btn-sm btn-outline-info" onclick="redirecciona()">Ver Descripción</button>
                         </div>
-                        <p class="mb-1">` + category.description + `</p>
+                       <small class="text-muted">` + category.productCount + ` artículos</small>
                     </div>
                 </div>
-            </a>
+            </div>
+        </div>
             `
         }
 
@@ -110,6 +116,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
         showCategoriesList();
     });
+
 
     document.getElementById("rangeFilterCount").addEventListener("click", function(){
         //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad

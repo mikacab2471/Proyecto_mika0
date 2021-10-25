@@ -8,19 +8,19 @@ function showGaleria(array) {
     document.getElementById('galeria').innerHTML =`<div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active" data-interval="10000">
-      <img src="`+array[0]+`" class="d-block w-85" alt="...">
+      <img src="`+array[0]+`" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item" data-interval="2000">
-      <img src="`+array[1]+`" class="d-block w-85" alt="...">
+      <img src="`+array[1]+`" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item" data-interval="2000">
-      <img src="`+array[2]+`" class="d-block w-85" alt="...">
+      <img src="`+array[2]+`" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item" data-interval="2000">
-      <img src="`+array[3]+`" class="d-block w-85" alt="...">
+      <img src="`+array[3]+`" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item" data-interval="2000">
-      <img src="`+array[4]+`" class="d-block w-85" alt="...">
+      <img src="`+array[4]+`" class="d-block w-100" alt="...">
     </div>
   </div>
   <a class="carousel-control-prev d-flex justify-content-center" href="#carouselExampleInterval" role="button" data-slide="prev">
