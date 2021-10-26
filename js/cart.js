@@ -27,9 +27,9 @@ function showProductosCarrito(array) {
 
           </div>
           <div class="col-2 ml-md-auto" id="subtotalesProductos">
-          <h5 id="subtotalesProductos`+ i + `">` + carrito.currency + `` + sumaTotalHTML + `</h5>
+          <h5 id="subtotalesProductos`+ i + `">` + pesos + `` + sumaTotalHTML + `</h5>
           
-          <small id="precioUnit">`+ carrito.currency + `` + carrito.unitCost + ` precio unitario</small>
+          <small id="precioUnit">`+ pesos + `` + carrito.unitCost + ` precio unitario</small>
           </div>
           
         <br>

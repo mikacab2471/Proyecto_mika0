@@ -36,14 +36,15 @@
 
 <body>
   <nav class="navbar navbar-expand-lg site-header navbar-dark bg-dark">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+      aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="inicioPag.html">
       <img src="img/inicio.png" width="80" height="40" alt="jap">
     </a>
-  
-  
+
+
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
@@ -117,7 +118,7 @@
               <div class="col-sm-10" id="seleccionarPago">
                 <div class="custom-control custom-radio">
                   <input class="custom-control-input" type="radio" name="pagosForma" id="credito" value="option1"
-                  checked>
+                    data-toggle="modal" data-target="#modal1">
                   <label class="custom-control-label" for="credito">
                     Crédito
                   </label>
@@ -129,7 +130,7 @@
                   </div>
                 </div>
                 <div class="custom-control custom-radio">
-                  <input class="custom-control-input" type="radio" name="pagosForma" id="debito" value="option2">
+                  <input class="custom-control-input" type="radio" name="pagosForma" id="debito" value="option2"  data-toggle="modal" data-target="#modal2">
                   <label class="custom-control-label" for="debito">
                     Débito
                   </label>
@@ -140,7 +141,7 @@
                 </div>
                 <div class="custom-control custom-radio">
                   <input class="custom-control-input" type="radio" name="pagosForma" id="transferenciaBancaria"
-                    value="option3">
+                    value="option3" data-toggle="modal" data-target="#modal3">
                   <label class="custom-control-label" for="transferenciaBancaria">
                     Transferencia Bancaria
                   </label>
@@ -207,20 +208,20 @@
           <h6>Tipos de Envío:</h6>
           <div class="d-block my-3" id="sleccionarTipoEnvio">
             <div class="custom-control custom-radio">
-              <input id="tipoPremium" name="envioTipo" type="radio" class="custom-control-input" checked
-                value="0.15" required="">
+              <input id="tipoPremium" name="envioTipo" type="radio" class="custom-control-input" checked value="0.15"
+                required="">
               <label class="custom-control-label" for="tipoPremium">Premium (2-5 días) <small class="text-muted">Costo
                   del 15% sobre el subtotal.</small></label>
             </div>
             <div class="custom-control custom-radio">
-              <input id="tipoExpress" name="envioTipo" type="radio" class="custom-control-input" 
-                value="0.07" required="">
+              <input id="tipoExpress" name="envioTipo" type="radio" class="custom-control-input" value="0.07"
+                required="">
               <label class="custom-control-label" for="tipoExpress">Express (5-8 días) <small class="text-muted">Costo
                   del 7% sobre el subtotal.</small></label>
             </div>
             <div class="custom-control custom-radio">
-              <input id="tipoStandard" name="envioTipo" type="radio" class="custom-control-input" 
-                value="0.05" required="">
+              <input id="tipoStandard" name="envioTipo" type="radio" class="custom-control-input" value="0.05"
+                required="">
               <label class="custom-control-label" for="tipoStandard">Standard (12-15 días) <small
                   class="text-muted">Costo del 5% sobre el subtotal.</small></label>
             </div>
@@ -230,8 +231,124 @@
         <br>
 
       </div>
-    
+
     </div>
+    <!-- Modal 1-->
+    <div class="modal fade" id="modal1" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Crédito</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+
+              <div class="form-group ">
+                <input type="text" class="form-control" id="inputNombreTitular" placeholder="Nombre del Titular" value="">
+              </div>
+              <div class="form-group ">
+                <input type="text" class="form-control" id="inputApellidoTitular" placeholder="Apellido del Titular" value="">
+              </div>
+              <div class="form-group ">
+                <input type="number" class="form-control" id="inputNumTarjeta" placeholder="Número de la Tarjeta" value="">
+              </div>
+              <div class="form-group ">
+                <input type="number" class="form-control" id="inputVencimiento"
+                  placeholder="Fecha de Vencimiento(MM/AAAA)" value="">
+              </div>
+              <div class="form-group ">
+                <input type="number" class="form-control" id="inputCodSeguridad" placeholder="Código de Seguridad(CVV)" value="">
+              </div>
+
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-info">Guardar Cambios</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal 2-->
+    <div class="modal fade" id="modal2" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Débito</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+
+              <div class="form-group ">
+                <input type="text" class="form-control" id="inputNombreTitular2" placeholder="Nombre del Titular" value="">
+              </div>
+              <div class="form-group ">
+                <input type="text" class="form-control" id="inputApellidoTitular2" placeholder="Apellido del Titular" value="">
+              </div>
+              <div class="form-group ">
+                <input type="number" class="form-control" id="inputNumTarjeta2" placeholder="Número de la Tarjeta" value="">
+              </div>
+              <div class="form-group ">
+                <input type="number" class="form-control" id="inputVencimiento2"
+                  placeholder="Fecha de Vencimiento(MM/AAAA)" value="">
+              </div>
+              <div class="form-group ">
+                <input type="number" class="form-control" id="inputCodSeguridad2" placeholder="Código de Seguridad(CVV)" value="">
+              </div>
+
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-info">Guardar Cambios</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal 3-->
+    <div class="modal fade" id="modal3" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Transferencia Bancaria</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+
+              <div class="form-group ">
+                <input type="text" class="form-control" id="inputNombreDestinatario" placeholder="Nombre del Destinatario" value="">
+              </div>
+              
+              <div class="form-group ">
+                <input type="number" class="form-control" id="inputNumCuenta" placeholder="Número de Cuenta" value="">
+              </div>
+              
+              <div class="form-group ">
+                <input type="text" class="form-control" id="inputNombBanco" placeholder="Nombre del Banco" value="">
+              </div>
+
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-info">Guardar Cambios</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--fin de los modal-->
     <footer class="text-muted bg-light">
       <div class="container">
         <p class="float-right">
@@ -255,7 +372,7 @@
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
-  
+
 </body>
 
 </html>

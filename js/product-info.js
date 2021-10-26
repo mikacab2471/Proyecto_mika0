@@ -44,23 +44,33 @@ function showComentarios(palabra) {
         let puntos = "";
 
         cargarComentario += `
-        <div class="contenido-coment bg-gradient-secondary">
-           <p><span>`+ comentarios.user + `</span></p>
-           <p>`+ comentarios.description + `</p>
-           <small class="text-muted" >` + comentarios.dateTime + `</small>
-      </div>
+      <div class="card">
+          <h5 class="card-header alert-info">
+          `+ comentarios.user + `
+          </h5>
+          <div class="card-body">
+                 <p>`+ comentarios.description + `</p>
+          </div>
+          <div class="card-footer text-muted">
+             ` + comentarios.dateTime + `
+         
+      
       `;
 
         for (let i = 1; i <= comentarios.score; i++) {
 
-            puntos += `<span class="fa fa-star checked"></span>`;
+            puntos += `<span class="fa fa-star checked"></span>
+            `;
         };
 
         for (let i = comentarios.score + 1; i <= 5; i++) {
             puntos += `<span class="fa fa-star"></span>`;
         };
         cargarComentario += `
-       <span style="text-align: right;">` + puntos + `</span>
+       <span style="align-item: right;">` + puntos + `</span>
+       </div>
+       </div>
+       <br>
     `;
 
     }
@@ -91,7 +101,7 @@ function showProductosRel(array1, array2) {
                <h5 class="card-title">`+ algo.name + `</h5>
                <p class="card-text">` + algo.description + `</p>
                <h5>`+ algo.currency + ` ` + algo.cost + `</h5>
-               <a href="product-info.html" class="btn btn-primary d-flex justify-content-center ">Visitar</a>
+               <a href="product-info.html" class="btn btn-info d-flex justify-content-center ">Visitar</a>
             </div>
         </div>
         `
@@ -157,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         let nuevoComentario = {
             score: getRating(),
             description: document.getElementById("nuevoComentario").value,
-            user: JSON.parse(localStorage.getItem('User-Logged')).email
+            user: JSON.parse(localStorage.getItem('User-Logged')).user
         };
 
         comentarioArray.push(nuevoComentario);
