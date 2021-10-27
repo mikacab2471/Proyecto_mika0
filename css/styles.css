@@ -206,3 +206,16 @@ a.custom-card:hover {
   border: solid #f8f9fa;
   border-width: .2rem 0 0;
 }
+
+.bg-imgindex {
+  /* The image used */
+  background-image: url("../img/fondo.png");
+
+  min-height: 380px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}

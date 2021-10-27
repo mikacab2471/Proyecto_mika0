@@ -42,45 +42,43 @@
   </style>
 </head>
 
-<body class="text-center">
-  <div class="container p-5">
-    <div style="position: relative; width:auto; top: 0;">
-      <img class="img-fluid img-thumbnail" src='img/login.png' alt="">
-      <div class="signin">
-        
-        <div>
-          <h1 class="h3 mb-3 font-weight-normal p-4">Inicio de Sesión</h1>
-        </div>
+<body class="text-center bg-imgindex">
+  <div class="container">
 
-        <div>
+    <div class="card signin border border-light shadow-lg p-3 mb-5 bg-light rounded">
+      <h4 class="card-title">
+        Inicio de Sesión
+      </h4>
+      <br>
+      <div class="card-body">
+        <div class="card-text">
           <label for="iEmail" class="sr-only">Usuario</label>
-          <input type="email" id="iEmail" class="form-control" placeholder="Usuario o Dirección de Email" required autofocus>
+          <input type="email" id="iEmail" class="form-control" placeholder="Usuario o Dirección de Email" required
+            autofocus>
           <div class="invalid-feedback">
             Por favor ingrese un usuario.
           </div>
         </div>
         <br>
-        <div>
+        <div class="card-text">
           <label for="iPassword" class="sr-only">Contraseña</label>
           <input type="password" id="iPassword" class="form-control" placeholder="Contraseña" required>
           <div class="invalid-feedback">
             Por favor ingrese una contraseña.
           </div>
         </div>
-        
-
+        <br>
         <div class="checkbox mb-3">
           <label>
             <input type="checkbox" value="remember-me"> Mantener sesión iniciada
           </label>
         </div>
-
-        
+        <button class="btn btn-outline-info btn-lg" id="enviarInfo" type="submit">Iniciar Sesión</button>
       </div>
-
-      <button class="btn btn-outline-info btn-lg" id="enviarInfo" type="submit" >Iniciar Sesión</button>
-      
     </div>
+
+
+
   </div>
 
   <script src="js/init.js"></script>
