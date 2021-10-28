@@ -49,7 +49,7 @@ function showProductos(array) {
         htmlContentToAppend += `
     
         <div class="col-md-5">
-            <div class="card mb-3 shadow-sm" onclick="setInfoProducto(`+ producto.id_auto +`)">
+            <div class="card mb-5 shadow-sm" onclick="setInfoProducto(`+ producto.id_auto +`)">
                 <img src="img/` + producto.name + `/prod1.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="">
                 <div class="card-body">
                    <h4 >`+ producto.name + `</h4>
