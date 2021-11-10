@@ -93,7 +93,7 @@
 
         <div class="row">
           <div class="col-md-4">
-            <h6>Subtotal de Productos Seleccionados</h6>
+            <h6>Subtotal de Productos Seleccionados($)</h6>
           </div>
           <div class="col-md-3 ml-md-auto" id="totalDeProductos"></div>
 
@@ -109,47 +109,23 @@
           <div class="col-md-4">
             <h4><strong>Total:</strong></h4>
           </div>
-          <div class="col-md-3 ml-md-auto" id="precioFinal"><strong></strong></div>
+          <div class="col-md-3 ml-md-auto" id="precioFinal"></div>
         </div>
+
         <div>
-          <h5>Formas de Pago</h5>
-          <fieldset class="form-group col align-self-center">
-            <div class="row">
-              <div class="col-sm-10" id="seleccionarPago">
-                <div class="custom-control custom-radio">
-                  <input class="custom-control-input" type="radio" name="pagosForma" id="credito" value="option1"
-                    data-toggle="modal" data-target="#modal1">
-                  <label class="custom-control-label" for="credito">
-                    Crédito
-                  </label>
-                  <div class="icon-container">
-                    <i class="fa fa-cc-visa" style="color:navy;"></i>
-                    <i class="fa fa-cc-amex" style="color:blue;"></i>
-                    <i class="fa fa-cc-mastercard" style="color:red;"></i>
-                    <i class="fa fa-cc-discover" style="color:orange;"></i>
-                  </div>
-                </div>
-                <div class="custom-control custom-radio">
-                  <input class="custom-control-input" type="radio" name="pagosForma" id="debito" value="option2"  data-toggle="modal" data-target="#modal2">
-                  <label class="custom-control-label" for="debito">
-                    Débito
-                  </label>
-                  <div class="icon-container">
-                    <i class="fa fa-cc-paypal" style="color:rgb(26, 99, 236);"></i>
-                    <i class="fa fa-cc-mastercard" style="color:red;"></i>
-                  </div>
-                </div>
-                <div class="custom-control custom-radio">
-                  <input class="custom-control-input" type="radio" name="pagosForma" id="transferenciaBancaria"
-                    value="option3" data-toggle="modal" data-target="#modal3">
-                  <label class="custom-control-label" for="transferenciaBancaria">
-                    Transferencia Bancaria
-                  </label>
-                </div>
-              </div>
-            </div>
-          </fieldset>
+          <button type="button" class="btn btn-outline-warning btn-lg btn-block" data-toggle="modal"
+            data-target="#exampleModal">
+            Formas de Pago
+          </button>
+          <div class="invalid-feedback" id="pago" style="display: none;">
+            Seleccione un método de Pago.
+          </div>
+          <div class="valid-feedback" id="pago" style="display: none;">
+            Seleccione un método de Pago.
+          </div>
         </div>
+
+        <br>
 
         <button type="submit" class="btn btn-info btn-lg btn-block" id="finalizarCompra">Finalizar Compra</button>
 
@@ -168,12 +144,19 @@
         <form>
           <div class="form-group">
             <label for="inputDireccion">Dirección</label>
-            <input type="text" class="form-control" id="inputDireccion" placeholder="ej: Pedrito 1234" value="">
+            <input type="text" class="form-control" name="metodoEnvio" id="inputDireccion"
+              placeholder="ej: Pedrito 1234" value="">
+            <div class="invalid-feedback">
+              Ingrese una dirección válida
+            </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="inputPais">País</label>
-              <input type="text" class="form-control" id="inputPais" value="">
+              <input type="text" class="form-control" name="metodoEnvio" id="inputPais" value="">
+              <div class="invalid-feedback">
+                Ingrese un país válido
+              </div>
             </div>
             <div class="form-group col-md-4">
               <label for="inputDepartamento">Departamento</label>
@@ -199,31 +182,39 @@
                 <option value="18">Tacuarembó</option>
                 <option value="19">Treinta y Tres</option>
               </select>
+              <div class="invalid-feedback">
+                Seleccione un Departamento
+              </div>
             </div>
             <div class="form-group col-md-2">
               <label for="inputCodigoPostal">Código Postal</label>
-              <input type="number" class="form-control" id="inputCodigoPostal" value="">
+              <input type="number" class="form-control" name="metodoEnvio" id="inputCodigoPostal" value="">
+              <div class="invalid-feedback">
+                Ingrese una código postal válido
+              </div>
             </div>
           </div>
+
           <h6>Tipos de Envío:</h6>
           <div class="d-block my-3" id="sleccionarTipoEnvio">
             <div class="custom-control custom-radio">
-              <input id="tipoPremium" name="envioTipo" type="radio" class="custom-control-input" checked value="0.15"
-                required="">
+              <input id="tipoPremium" name="envioTipo" type="radio" class="custom-control-input" value="15" required=""
+                checked>
               <label class="custom-control-label" for="tipoPremium">Premium (2-5 días) <small class="text-muted">Costo
                   del 15% sobre el subtotal.</small></label>
+
             </div>
             <div class="custom-control custom-radio">
-              <input id="tipoExpress" name="envioTipo" type="radio" class="custom-control-input" value="0.07"
-                required="">
+              <input id="tipoExpress" name="envioTipo" type="radio" class="custom-control-input" value="7" required="">
               <label class="custom-control-label" for="tipoExpress">Express (5-8 días) <small class="text-muted">Costo
                   del 7% sobre el subtotal.</small></label>
+
             </div>
             <div class="custom-control custom-radio">
-              <input id="tipoStandard" name="envioTipo" type="radio" class="custom-control-input" value="0.05"
-                required="">
+              <input id="tipoStandard" name="envioTipo" type="radio" class="custom-control-input" value="5" required="">
               <label class="custom-control-label" for="tipoStandard">Standard (12-15 días) <small
                   class="text-muted">Costo del 5% sobre el subtotal.</small></label>
+
             </div>
 
           </div>
@@ -233,89 +224,10 @@
       </div>
 
     </div>
-    <!-- Modal 1----------------------------------------------------------------------------->
-    <div class="modal fade" id="modal1" tabindex="-1" role="dialog"
-      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalCenterTitle">Crédito</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form>
 
-              <div class="form-group ">
-                <input type="text" class="form-control" id="inputNombreTitular" placeholder="Nombre del Titular" value="">
-              </div>
-              <div class="form-group ">
-                <input type="text" class="form-control" id="inputApellidoTitular" placeholder="Apellido del Titular" value="">
-              </div>
-              <div class="form-group ">
-                <input type="number" class="form-control" id="inputNumTarjeta" placeholder="Número de la Tarjeta" value="">
-              </div>
-              <div class="form-group ">
-                <input type="number" class="form-control" id="inputVencimiento"
-                  placeholder="Fecha de Vencimiento(MM/AAAA)" value="">
-              </div>
-              <div class="form-group ">
-                <input type="number" class="form-control" id="inputCodSeguridad" placeholder="Código de Seguridad(CVV)" value="">
-              </div>
-
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-info">Guardar Cambios</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Modal 2------------------------------------------------------------------------------>
-    <div class="modal fade" id="modal2" tabindex="-1" role="dialog"
-      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalCenterTitle">Débito</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form>
-
-              <div class="form-group ">
-                <input type="text" class="form-control" id="inputNombreTitular2" placeholder="Nombre del Titular" value="">
-              </div>
-              <div class="form-group ">
-                <input type="text" class="form-control" id="inputApellidoTitular2" placeholder="Apellido del Titular" value="">
-              </div>
-              <div class="form-group ">
-                <input type="number" class="form-control" id="inputNumTarjeta2" placeholder="Número de la Tarjeta" value="">
-              </div>
-              <div class="form-group ">
-                <input type="number" class="form-control" id="inputVencimiento2"
-                  placeholder="Fecha de Vencimiento(MM/AAAA)" value="">
-              </div>
-              <div class="form-group ">
-                <input type="number" class="form-control" id="inputCodSeguridad2" placeholder="Código de Seguridad(CVV)" value="">
-              </div>
-
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-info">Guardar Cambios</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Modal 3-------------------------------------------------------------------------------------------->
-    <div class="modal fade" id="modal3" tabindex="-1" role="dialog"
-      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <!-- Modal -------------------------------------------------------------------------------------------->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -325,25 +237,82 @@
             </button>
           </div>
           <div class="modal-body">
-            <form>
 
-              <div class="form-group ">
-                <input type="text" class="form-control" id="inputNombreDestinatario" placeholder="Nombre del Destinatario" value="">
-              </div>
-              
-              <div class="form-group ">
-                <input type="number" class="form-control" id="inputNumCuenta" placeholder="Número de Cuenta" value="">
-              </div>
-              
-              <div class="form-group ">
-                <input type="text" class="form-control" id="inputNombBanco" placeholder="Nombre del Banco" value="">
-              </div>
 
-            </form>
+            <div class="custom-control custom-radio">
+              <input class="custom-control-input" type="radio" name="pagosForma" id="credito" value="option1"
+                data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false"
+                aria-controls="collapseExample1">
+              <label class="custom-control-label" for="credito">
+                Crédito
+              </label>
+              <div class="icon-container">
+                <i class="fa fa-cc-visa" style="color:navy;"></i>
+                <i class="fa fa-cc-amex" style="color:blue;"></i>
+                <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                <i class="fa fa-cc-discover" style="color:orange;"></i>
+              </div>
+              <form class="collapse" id="collapseExample1">
+
+                <div class="form-group ">
+                  <input type="text" name="informacion" class="form-control" id="inputNombreTitular"
+                    placeholder="Nombre del Titular" value="">
+
+                </div>
+                <div class="form-group ">
+                  <input type="text" name="informacion" class="form-control" id="inputApellidoTitular"
+                    placeholder="Apellido del Titular" value="">
+
+                </div>
+                <div class="form-group ">
+                  <input type="number" name="informacion" class="form-control" id="inputNumTarjeta"
+                    placeholder="Número de la Tarjeta" value="">
+
+                </div>
+                <div class="form-group ">
+                  <input type="number" name="informacion" class="form-control" id="inputVencimiento"
+                    placeholder="Fecha de Vencimiento(MM/AAAA)" value="">
+
+                </div>
+                <div class="form-group ">
+                  <input type="number" name="informacion" class="form-control" id="inputCodSeguridad"
+                    placeholder="Código de Seguridad(CVV)" value="">
+
+                </div>
+
+              </form>
+            </div>
+
+            <div class="custom-control custom-radio">
+              <input class="custom-control-input" type="radio" name="pagosForma" id="transferenciaBancaria"
+                value="option3" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false"
+                aria-controls="collapseExample3">
+              <label class="custom-control-label" for="transferenciaBancaria">
+                Transferencia Bancaria
+              </label>
+              <form class="collapse" id="collapseExample3">
+
+                <div class="form-group ">
+                  <input type="text" name="informacion" class="form-control" id="inputNombreDestinatario"
+                    placeholder="Nombre del Destinatario" value="">
+                </div>
+
+                <div class="form-group ">
+                  <input type="number" name="informacion" class="form-control" id="inputNumCuenta"
+                    placeholder="Número de Cuenta" value="">
+
+                </div>
+
+                <div class="form-group ">
+                  <input type="text" name="informacion" class="form-control" id="inputNombBanco"
+                    placeholder="Nombre del Banco" value="">
+                </div>
+              </form>
+            </div>
+
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-info">Guardar Cambios</button>
           </div>
         </div>
       </div>
@@ -359,6 +328,12 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
+  <div class="alert alert-info fade" role="alert" id="alertResult">
+    <span id="resultSpan"></span>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>

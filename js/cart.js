@@ -27,7 +27,7 @@ function showProductosCarrito(array) {
 
           </div>
           <div class="col-2 ml-md-auto" id="subtotalesProductos">
-          <h5 id="subtotalesProductos`+ i + `">` + pesos + `` + sumaTotalHTML + `</h5>
+          <h5 class="subtotal" id="subtotalesProductos`+ i + `">` + pesos + `` + sumaTotalHTML + `</h5>
           
           <small id="precioUnit">`+ pesos + `` + carrito.unitCost + ` precio unitario</small>
           </div>
@@ -36,6 +36,7 @@ function showProductosCarrito(array) {
         </div>
         <br>`
     }
+
     document.getElementById("productosSeleccionados").innerHTML = miCarrito;
 }
 
@@ -43,26 +44,30 @@ function showProductosCarrito(array) {
 function subtotal(unitario, i) {
 
     let cantidadCoun = parseInt(document.getElementById(`cantidadCount` + i + ``).value);
-    let total = pesos + (unitario * cantidadCoun);
-    document.getElementById(`subtotalesProductos` + i + ``).innerHTML = total;
+    let total = (unitario * cantidadCoun);
+    document.getElementById(`subtotalesProductos` + i + ``).innerHTML = pesos + total;
     document.getElementById("totalDeProductos").innerHTML = total;
-    
+    costo()
 }
 
-//function costo(){
-    
-   // let totalHTML = parseInt(document.getElementById("totalDeProductos").innerHTML);
-    //let envio;
-   // let algo = document.getElementsByName("envioTipo");
-   // for(let i=0; i < algo.length; i++){
-   //     if (algo[i].checked){
-   //         envio = (totalHTML * parseInt(algo[i].value));
-   //    }
-     
-   // }
+function costo() {
 
-  //  document.getElementById("costoEnvio").innerHTML = envio;
-//}
+    let totalHTML = parseInt(document.getElementById("totalDeProductos").innerHTML);
+    let envio;
+    let tipoEnvio = document.getElementsByName("envioTipo");
+    for (let i = 0; i < tipoEnvio.length; i++) {
+        if (tipoEnvio[i].checked) {
+            envio = Math.round(totalHTML * ((parseInt(tipoEnvio[i].value)) / 100));
+        }
+
+    }
+    let totalFinal = (totalHTML + envio);
+
+
+
+    document.getElementById("costoEnvio").innerHTML = pesos + envio;
+    document.getElementById("precioFinal").innerHTML = pesos + totalFinal;
+}
 
 
 
@@ -79,17 +84,163 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
             showProductosCarrito(productoMiCarrito);
 
-
         }
 
     });
 
+
+    let tipoEnvio = document.getElementsByName("envioTipo");
+    for (let i = 0; i < tipoEnvio.length; i++) {
+        tipoEnvio[i].addEventListener("change", function () {
+            costo();
+        });
+
+    }
+
+
+
+    document.getElementById("finalizarCompra").addEventListener("click", function (e) {
+
+        let inputDireccion = document.getElementById("inputDireccion");
+        let inputPais = document.getElementById("inputPais");
+        let inputDepartamento = document.getElementById("inputDepartamento");
+        let inputCodigoPostal = document.getElementById("inputCodigoPostal");
+        let envioTipo = document.getElementsByName("envioTipo");
+
+        let credito = document.getElementById("credito");
+        let inputNombreTitular = document.getElementById("inputNombreTitular");
+        let inputApellidoTitular = document.getElementById("inputApellidoTitular");
+        let inputNumTarjeta = document.getElementById("inputNumTarjeta");
+        let inputVencimiento = document.getElementById("inputVencimiento");
+        let inputCodSeguridad = document.getElementById("inputCodSeguridad");
+
+        let transferenciaBancaria = document.getElementById("transferenciaBancaria");
+        let inputNombreDestinatario = document.getElementById("inputNombreDestinatario");
+        let inputNumCuenta = document.getElementById("inputNumCuenta");
+        let inputNombBanco = document.getElementById("inputNombBanco");
+
+        let infoMissing = false;
+        let errorPago = false;
+
+
+        inputDireccion.classList.remove('is-invalid');
+        inputPais.classList.remove('is-invalid');
+        inputDepartamento.classList.remove('is-invalid');
+        inputCodigoPostal.classList.remove('is-invalid');
+
+        credito.classList.remove('is-invalid');
+        inputNombreTitular.classList.remove('is-invalid');
+        inputApellidoTitular.classList.remove('is-invalid');
+        inputNumTarjeta.classList.remove('is-invalid');
+        inputVencimiento.classList.remove('is-invalid');
+        inputCodSeguridad.classList.remove('is-invalid');
+
+        transferenciaBancaria.classList.remove('is-invalid');
+        inputNombreDestinatario.classList.remove('is-invalid');
+        inputNumCuenta.classList.remove('is-invalid');
+        inputNombBanco.classList.remove('is-invalid');
+
+
+        if (inputDireccion.value === "") {
+            inputDireccion.classList.add('is-invalid');
+            infoMissing = true;
+        }
+
+
+        if (inputPais.value === "") {
+            inputPais.classList.add('is-invalid');
+            infoMissing = true;
+        }
+
+        if (inputDepartamento.value === "") {
+            inputDepartamento.classList.add('is-invalid');
+            infoMissing = true;
+        }
+
+        if (envioTipo.value === "") {
+            infoMissing = true;
+        }
+
+        if (inputCodigoPostal.value === "") {
+            inputCodigoPostal.classList.add('is-invalid');
+            infoMissing = true;
+        }
+
+        if (!credito.checked && !transferenciaBancaria.checked) {
+
+            infoMissing = true;
+            errorPago = true;
+            credito.classList.add('is-invalid');
+            transferenciaBancaria.classList.add('is-invalid');
+        } 
+
+        if (transferenciaBancaria.checked) {
+            if (inputNombreDestinatario.value === "") {
+                infoMissing = true;
+                errorPago = true;
+                inputNombreDestinatario.classList.add('is-invalid');
+            }
     
-   // let algo = document.getElementsByName("envioTipo");
-   // for(var i=0; i < algo.length; i++){
-   //     algo[i].addEventListener("change", function(){
-   //         costo()
-   //     });
-        
-  //  }
+    
+            if (inputNumCuenta.value === "") {
+                infoMissing = true;
+                errorPago = true;
+                inputNumCuenta.classList.add('is-invalid');
+            }
+    
+            if (inputNombBanco.value === "") {
+                infoMissing = true;
+                errorPago = true;
+                inputNombBanco.classList.add('is-invalid'); 
+            }
+
+        } else if(credito.checked){
+            if (inputNombreTitular.value === "") {
+                infoMissing = true;
+                errorPago = true;
+                inputNombreTitular.classList.add('is-invalid');
+            }
+    
+    
+            if (inputApellidoTitular.value === "") {
+                infoMissing = true;
+                errorPago = true;
+                inputApellidoTitular.classList.add('is-invalid');
+            }
+    
+            if (inputNumTarjeta.value === "") {
+                infoMissing = true;
+                errorPago = true;
+                inputNumTarjeta.classList.add('is-invalid'); 
+            }
+
+            if (inputVencimiento.value === "") {
+                infoMissing = true;
+                errorPago = true;
+                inputVencimiento.classList.add('is-invalid'); 
+            }
+
+            if (inputCodSeguridad.value === "") {
+                infoMissing = true;
+                errorPago = true;
+                inputCodSeguridad.classList.add('is-invalid'); 
+            }
+
+        }
+
+        if (!infoMissing) {
+
+            let mensaje = "Se ha efectuado la compra de forma correcta.";
+            document.getElementById("resultSpan").innerHTML = mensaje;
+            document.getElementById("alertResult").classList.add("show");
+
+        }
+
+        if(errorPago){
+            alert("Debe verificar que todos los campos se encuentren completos en el método de pago.");
+        }
+
+        if (e.preventDefault) e.preventDefault();
+        return false;
+    });
 });
