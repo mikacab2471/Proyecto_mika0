@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         let inputNumCuenta = document.getElementById("inputNumCuenta");
         let inputNombBanco = document.getElementById("inputNombBanco");
 
-        let infoMissing = false;
+        let verificacion = false;
         let errorPago = false;
 
 
@@ -143,32 +143,32 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
         if (inputDireccion.value === "") {
             inputDireccion.classList.add('is-invalid');
-            infoMissing = true;
+            verificacion = true;
         }
 
 
         if (inputPais.value === "") {
             inputPais.classList.add('is-invalid');
-            infoMissing = true;
+            verificacion = true;
         }
 
         if (inputDepartamento.value === "") {
             inputDepartamento.classList.add('is-invalid');
-            infoMissing = true;
+            verificacion = true;
         }
 
         if (envioTipo.value === "") {
-            infoMissing = true;
+            verificacion = true;
         }
 
         if (inputCodigoPostal.value === "") {
             inputCodigoPostal.classList.add('is-invalid');
-            infoMissing = true;
+            verificacion = true;
         }
 
         if (!credito.checked && !transferenciaBancaria.checked) {
 
-            infoMissing = true;
+            verificacion = true;
             errorPago = true;
             credito.classList.add('is-invalid');
             transferenciaBancaria.classList.add('is-invalid');
@@ -176,59 +176,59 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
         if (transferenciaBancaria.checked) {
             if (inputNombreDestinatario.value === "") {
-                infoMissing = true;
+                verificacion = true;
                 errorPago = true;
                 inputNombreDestinatario.classList.add('is-invalid');
             }
     
     
             if (inputNumCuenta.value === "") {
-                infoMissing = true;
+                verificacion = true;
                 errorPago = true;
                 inputNumCuenta.classList.add('is-invalid');
             }
     
             if (inputNombBanco.value === "") {
-                infoMissing = true;
+                verificacion = true;
                 errorPago = true;
                 inputNombBanco.classList.add('is-invalid'); 
             }
 
         } else if(credito.checked){
             if (inputNombreTitular.value === "") {
-                infoMissing = true;
+                verificacion = true;
                 errorPago = true;
                 inputNombreTitular.classList.add('is-invalid');
             }
     
     
             if (inputApellidoTitular.value === "") {
-                infoMissing = true;
+                verificacion = true;
                 errorPago = true;
                 inputApellidoTitular.classList.add('is-invalid');
             }
     
             if (inputNumTarjeta.value === "") {
-                infoMissing = true;
+                verificacion = true;
                 errorPago = true;
                 inputNumTarjeta.classList.add('is-invalid'); 
             }
 
             if (inputVencimiento.value === "") {
-                infoMissing = true;
+                verificacion = true;
                 errorPago = true;
                 inputVencimiento.classList.add('is-invalid'); 
             }
 
             if (inputCodSeguridad.value === "") {
-                infoMissing = true;
+                verificacion = true;
                 errorPago = true;
                 inputCodSeguridad.classList.add('is-invalid'); 
             }
 
         }
 
-        if (!infoMissing) {
+        if (!verificacion) {
 
             let mensaje = "Se ha efectuado la compra de forma correcta.";
             document.getElementById("resultSpan").innerHTML = mensaje;
@@ -236,7 +236,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
         }
 
-        if(errorPago){
+        if(verificacion){
             alert("Debe verificar que todos los campos se encuentren completos en el método de pago.");
         }
 
