@@ -236,7 +236,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
         }
 
-        if(verificacion){
+        if(errorPago){
             alert("Debe verificar que todos los campos se encuentren completos en el método de pago.");
         }
 
