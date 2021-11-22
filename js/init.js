@@ -8,10 +8,6 @@ const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
 
 
-
-const PRODUCTS = "https://japdevdep.github.io/ecommerce-api/product/all.json"; //ya no la uso es la vieja
-const PRODUCT = "https://mikacab2471.github.io/api_proyectos/productos_autos.json"; //la nueva que uso
-
 var showSpinner = function () {
   document.getElementById("spinner-wrapper").style.display = "block";
 }
